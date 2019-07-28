@@ -8,17 +8,12 @@ import SpacingGrid from './SpacingGrid'
 
 const SortableItem = SortableElement(({value}) => <Subreddit textContent={value}>{value}</Subreddit>);
 
-let imStupid = () => {
-  
-}
 
 const SortableList = SortableContainer(({items}) => {
   return (
-    <ul>
-      {items.map((value, index) => (
-        <SortableItem key={`item-${index}`} index={index} value={value} />
-      ))}
-    </ul>
+    <SpacingGrid items={items.map((value, index) => {
+      return <SortableItem key={`item-${index}`} index={index} value={value} />
+    })}/>
   );
 });
 
