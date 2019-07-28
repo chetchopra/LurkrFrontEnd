@@ -8,7 +8,7 @@ import SubredditPost from './SubredditPost'
 export default class Subreddit extends Component {
 
   generateBS = () => {
-    let bs = Array(5).fill("BullShit")
+    let bs = Array(1).fill("BullShit")
     return bs.map((b, index) => {
       return <SubredditPost key={index} textContent={b}/>
     })
