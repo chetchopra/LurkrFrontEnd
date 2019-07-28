@@ -4,8 +4,13 @@ import {SortableContainer, SortableElement} from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 
 import Subreddit from '../../components/Subreddit'
+import SpacingGrid from './SpacingGrid'
 
-const SortableItem = SortableElement(({value}) => <li>{value}</li>);
+const SortableItem = SortableElement(({value}) => <Subreddit textContent={value}>{value}</Subreddit>);
+
+let imStupid = () => {
+  
+}
 
 const SortableList = SortableContainer(({items}) => {
   return (
@@ -19,16 +24,19 @@ const SortableList = SortableContainer(({items}) => {
 
 export default class SortableComponent extends Component {
   state = {
-    items: [<Subreddit/>, <Subreddit/>, <Subreddit/>, <Subreddit/>, <Subreddit/>],
+    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
   };
+
   onSortEnd = ({oldIndex, newIndex}) => {
     this.setState(({items}) => ({
       items: arrayMove(items, oldIndex, newIndex),
     }));
   };
+
+  // Map throuvgh like in grid and put in grid items 
   render() {
     return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
   }
 }
 
-render(<SortableComponent />, document.getElementById('root'));
+// render(<SortableComponent />, document.getElementById('root'));

@@ -6,8 +6,8 @@ import SortableComponent from './dragndrop/SortableComponent'
 
 export default function MainStage() {
   return (
-    <div>
+    
       <SortableComponent/>
-    </div>
+    
   )
 }
