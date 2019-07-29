@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import ExpansionPanel from '../components/ExpansionPanel';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,19 +57,21 @@ export default function SubredditPost(props) {
                 <Typography variant="body2" gutterBottom>
                   Posted By: {props.post.author}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
+                {/* <Typography variant="body2" color="textSecondary">
                   {props.post.num_comments} comments
-                </Typography>
+                </Typography> */}
               </Grid>
+              <ExpansionPanel numComments={props.post.num_comments} linkToComments={props.post.permalink}/>
+
               {/* <Grid item>
                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
                   Remove
                 </Typography>
               </Grid> */}
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Typography variant="subtitle1">{props.post.up_votes}</Typography>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </Paper>

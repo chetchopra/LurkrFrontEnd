@@ -41,7 +41,7 @@ export default class Subreddit extends Component {
 
   generatePosts = () => {
     return this.state.posts.map((post, index) => {
-      console.log(post.title)
+      // console.log(post.title)
       return <SubredditPost key={index} post={post}/>
     })
   }
