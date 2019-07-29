@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import SubredditPost from './SubredditPost'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { List } from '@material-ui/core';
 
 //TO-DO: Consider making this a container and moving it to the containers folder
 //But I think this needs state
@@ -25,19 +26,23 @@ export default class Subreddit extends Component {
   
   
 
-  generateBS = () => {
-    let bs = Array(1).fill("BullShit")
-    return bs.map((b, index) => {
-      return <SubredditPost key={index} textContent={b}/>
+  generatePosts = () => {
+    return this.props.posts.map((post, index) => {
+      return <SubredditPost key={index} post={post}/>
     })
   }
 
   render() {
+    
 
     return (
-      
-    <Paper>{this.props.textContent}</Paper>
-    // <Paper className={classes.paper}/>
+      <div>
+      {this.props.name}
+      <Paper style={{maxHeight: 200, overflow: 'auto'}}>
+          {this.generatePosts()}
+
+      </Paper>
+      </div>
     )
   }
 }
