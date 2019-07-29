@@ -21,7 +21,7 @@ export default function BasicGrid(props) {
 
   let generateSubredditGrid = (props) => {
     return props.subreddits.map((subreddit, index) => {
-      return <Grid item xs={4}><Subreddit key={index} posts={subreddit.posts} name={subreddit.name}/></Grid>
+      return <Grid item xs={6}><Subreddit key={index} name={subreddit.name}/></Grid>
     })
   }
 

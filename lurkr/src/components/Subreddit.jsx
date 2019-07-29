@@ -23,11 +23,25 @@ import { List } from '@material-ui/core';
 
 export default class Subreddit extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      posts: []
+    }
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:3000/subreddits/${this.props.name}`)
+    .then(resp => resp.json())
+    .then(json => this.setState({posts: json}))
+  }
+
   
   
 
   generatePosts = () => {
-    return this.props.posts.map((post, index) => {
+    return this.state.posts.map((post, index) => {
+      console.log(post.title)
       return <SubredditPost key={index} post={post}/>
     })
   }
@@ -36,13 +50,16 @@ export default class Subreddit extends Component {
     
 
     return (
-      <div>
-      {this.props.name}
-      <Paper style={{maxHeight: 200, overflow: 'auto'}}>
-          {this.generatePosts()}
+      <Paper style={{margin: '1%'}}>
+        <p>{this.props.name}</p>
+        <Paper style={{maxHeight: 400, overflow: 'auto'}}>
+            {this.generatePosts()}
 
+        </Paper>
+        <div>
+          Page: 1 2 3 4 5 6 7 8 or nah
+        </div>
       </Paper>
-      </div>
     )
   }
 }

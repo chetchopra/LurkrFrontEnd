@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     marginBottom: '1%',
     marginTop: '1%',
     maxWidth: '100%',
@@ -27,39 +27,46 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SubredditPost() {
+export default function SubredditPost(props) {
   const classes = useStyles();
 
+  let displayImage = () => {
+    if (props.post.img !== "" && props.post.img !== "self") {
+      return <Grid item>
+      <ButtonBase className={classes.image}>
+        <img className={classes.img} alt="complex" src={props.post.img}/>
+      </ButtonBase>
+    </Grid> 
+    }
+  }
+
   return (
+    
     <div className={classes.root} >
       <Paper className={classes.paper} style={{backgroundColor: "#DCDCDC"}}>
         <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src="https://smallimg.pngkey.com/png/small/0-8475_reddit-social-logo-character-reddit-icon-png.png" />
-            </ButtonBase>
-          </Grid>
+          {displayImage()}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                  Standard license
-                </Typography>
+                <p><strong>
+                  {props.post.title}
+                </strong></p>
                 <Typography variant="body2" gutterBottom>
-                  Full resolution 1920x1080 • JPEG
+                  Posted By: {props.post.author}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
+                  {props.post.num_comments} comments
                 </Typography>
               </Grid>
-              <Grid item>
+              {/* <Grid item>
                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
                   Remove
                 </Typography>
-              </Grid>
+              </Grid> */}
             </Grid>
             <Grid item>
-              <Typography variant="subtitle1">$19.00</Typography>
+              <Typography variant="subtitle1">{props.post.up_votes}</Typography>
             </Grid>
           </Grid>
         </Grid>
