@@ -50,7 +50,6 @@ export default class Expansion extends Component {
   let printPreorder = (node, depth) => {
     let spaces = Array(depth).fill("-----");
     overall.push(spaces.join("") + node.data.body + "\n");
-    // console.log(overall);
     if (node.data.replies === "") {
       return;
     } 
@@ -65,7 +64,7 @@ export default class Expansion extends Component {
     fetch(url)
     .then(resp => resp.json())
     .then(json => this.setState({comments: json[1].data.children}))
-  }//console.log(json[1].data.children[0].kind))
+  }
 
 
 
@@ -81,19 +80,19 @@ export default class Expansion extends Component {
           <Typography >{this.props.numComments} comments</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails style={{backgroundColor: "#FFFFFF"}}>
-          {/* <Typography>
-            
-          </Typography> */}
-          {this.state.comments.forEach((child) => {
+          <Typography>
+            Hello
+          </Typography>
+          {/* {this.state.comments.forEach((child) => {
             let depth = 0;
             printPreorder(child, depth)
             }
-          )}
-          <ul>
+          )} */}
+          {/* <ul>
           {overall.map((comment, index) => {
             return <li key={index}>{comment}</li>;
           } )}
-          </ul>
+          </ul> */}
         </ExpansionPanelDetails>
       </ExpansionPanel>
 

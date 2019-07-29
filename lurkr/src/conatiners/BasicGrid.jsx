@@ -20,8 +20,8 @@ export default function BasicGrid(props) {
   const classes = useStyles();
 
   let generateSubredditGrid = (props) => {
-    return props.subreddits.map((subreddit, index) => {
-      return <Grid item xs={6} key={index}><Subreddit key={index} name={subreddit.name}/></Grid>
+    return props.subreddits.map((subreddit) => {
+      return <Grid item xs={3} key={subreddit.name}><Subreddit subreddit={subreddit} removeSubreddit={props.removeSubreddit}/></Grid>
     })
   }
 

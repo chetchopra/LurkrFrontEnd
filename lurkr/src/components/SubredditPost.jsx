@@ -33,7 +33,7 @@ export default function SubredditPost(props) {
   const classes = useStyles();
 
   let displayImage = () => {
-    if (props.post.img !== "" && props.post.img !== "self") {
+    if (props.post.img !== "" && props.post.img !== "self" && props.post.img !== "default") {
       return <Grid item>
       <ButtonBase className={classes.image}>
         <img className={classes.img} alt="complex" src={props.post.img}/>
@@ -54,14 +54,15 @@ export default function SubredditPost(props) {
                 <p><strong>
                   {props.post.title}
                 </strong></p>
-                <Typography variant="body2" gutterBottom>
+                {/* <Typography variant="body2" gutterBottom>
                   Posted By: {props.post.author}
-                </Typography>
+                </Typography> */}
                 {/* <Typography variant="body2" color="textSecondary">
                   {props.post.num_comments} comments
                 </Typography> */}
               </Grid>
-              <ExpansionPanel numComments={props.post.num_comments} linkToComments={props.post.permalink}/>
+
+              {/* <ExpansionPanel numComments={props.post.num_comments} linkToComments={props.post.permalink}/> */}
 
               {/* <Grid item>
                 <Typography variant="body2" style={{ cursor: 'pointer' }}>

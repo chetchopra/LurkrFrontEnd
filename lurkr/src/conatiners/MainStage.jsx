@@ -11,29 +11,24 @@ import ExpansionPanel from '../components/ExpansionPanel'
 
 
 export default class MainStage extends Component {
-  constructor() {
-    super()
-    this.state = {
-      subreddits: []
-    }
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     subreddits: []
+  //   }
+  // }
 
-  componentDidMount() {
-    fetch("http://localhost:3000/users/1")
-    .then(resp => resp.json())
-    .then(json => this.setState({subreddits: json.subreddits}))
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3000/users/1")
+  //   .then(resp => resp.json())
+  //   .then(json => this.setState({subreddits: json.subreddits}))
+  // }
 
   render() {
     // var grid = new Muuri('.grid');
     return (
-      <div>
-      <BasicGrid subreddits={this.state.subreddits}/>
-      {/* <DGrid/> */}
-
- 
- 
-      </div>
+    
+      <BasicGrid subreddits={this.props.subreddits} removeSubreddit={this.props.removeSubreddit}/>  
     )
 
   }
