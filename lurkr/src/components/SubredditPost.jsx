@@ -33,33 +33,37 @@ export default function SubredditPost(props) {
   const classes = useStyles();
 
   let displayImage = () => {
-    if (props.post.img !== "" && props.post.img !== "self" && props.post.img !== "default") {
+    // console.log(props)
+    if (props.img !== "" && props.img !== "self" && props.img !== "default") {
       return <Grid item>
       <ButtonBase className={classes.image}>
-        <img className={classes.img} alt="complex" src={props.post.img}/>
+        <img className={classes.img} alt="complex" src={props.img} style={{borderRadius: "10px"}}/>
       </ButtonBase>
     </Grid> 
     }
   }
 
   return (
+
+    // One -- "#D5D5D5"
+    // Two -- "#EAC67A"
     
     <div className={classes.root} >
-      <Paper className={classes.paper} style={{backgroundColor: "#DCDCDC"}}>
+      <Paper className={classes.paper} style={{backgroundColor: "#D5D5D5"}}>  
         <Grid container spacing={2}>
           {displayImage()}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <p><strong>
-                  {props.post.title}
+                <p style={{whiteSpace: "nowrap", overflow: "hidden"}}><strong>
+                  {props.title}
                 </strong></p>
                 {/* <Typography variant="body2" gutterBottom>
-                  Posted By: {props.post.author}
+                  Posted By: {props.author}
                 </Typography> */}
-                {/* <Typography variant="body2" color="textSecondary">
-                  {props.post.num_comments} comments
-                </Typography> */}
+                <Typography variant="body2" color="textSecondary">
+                  {props.num_comments} comments
+                </Typography>
               </Grid>
 
               {/* <ExpansionPanel numComments={props.post.num_comments} linkToComments={props.post.permalink}/> */}

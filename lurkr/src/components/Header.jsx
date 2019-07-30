@@ -39,7 +39,7 @@ export default function Header(props) {
 
     return (
       <div className={classes.root}>
-      <AppBar position="sticky" style={{ background: '#2E3B55' }}>
+      <AppBar position="sticky" style={{ background: `${props.theme.header}` }}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />

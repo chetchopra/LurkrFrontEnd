@@ -28,7 +28,7 @@ export default class MainStage extends Component {
     // var grid = new Muuri('.grid');
     return (
     
-      <BasicGrid subreddits={this.props.subreddits} removeSubreddit={this.props.removeSubreddit}/>  
+      <BasicGrid subreddits={this.props.subreddits} removeSubreddit={this.props.removeSubreddit} theme={this.props.theme}/>  
     )
 
   }

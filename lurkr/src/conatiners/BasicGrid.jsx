@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Subreddit from '../components/Subreddit';
+import List from '../components/List'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,7 +22,7 @@ export default function BasicGrid(props) {
 
   let generateSubredditGrid = (props) => {
     return props.subreddits.map((subreddit) => {
-      return <Grid item xs={3} key={subreddit.name}><Subreddit subreddit={subreddit} removeSubreddit={props.removeSubreddit}/></Grid>
+      return <Grid item xs={4} key={subreddit.name}><Subreddit subreddit={subreddit} removeSubreddit={props.removeSubreddit} theme={props.theme}/></Grid>
     })
   }
 
@@ -29,7 +30,7 @@ export default function BasicGrid(props) {
 
   return (
     // style={{backgroundColor: "#113452"}}
-    <div className={classes.root} > 
+    <div className={classes.root} style={{backgroundColor: `${props.theme.backGround}`}} > 
       <Grid container spacing={3}>
         {generateSubredditGrid(props)}
       </Grid>

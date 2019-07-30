@@ -3,8 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import SubredditPost from './SubredditPost'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { List } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import List from './List'
+// import '../css/subreddit.css'
 
 //TO-DO: Consider making this a container and moving it to the containers folder
 //But I think this needs state
@@ -53,21 +54,24 @@ export default class Subreddit extends Component {
     
 
     return (
-      <Paper style={{margin: '1%'}}>
-        <div>
-          <p style={{paddingLeft: '5%'}}>{this.props.subreddit.name}
+      <Paper style={{margin: '1%', backgroundColor: `${this.props.theme.subreddit}`}}>
+        <div id="container">
+          <div id="left">
+            <p>{this.props.subreddit.name}</p>
+          </div>
+          <div id="right">
             <Button  color="secondary" onClick={() => {
               this.props.removeSubreddit(this.props.subreddit.name)
               }}>
-              X
+              x
             </Button>
-          </p>
-
+          </div>
         </div>
 
 
-        <Paper style={{maxHeight: 400, overflow: 'auto'}}>
-            {this.generatePosts()}
+        <Paper style={{maxHeight: 400, overflow: 'auto', backgroundColor: `${this.props.theme.subreddit}`, margin: '1%'}}>
+            {/* {this.generatePosts()} */}
+            <List data={this.state.posts} contentDisplayComponent={SubredditPost} theme={this.props.theme}/>
 
         </Paper>
         {/* <div>
