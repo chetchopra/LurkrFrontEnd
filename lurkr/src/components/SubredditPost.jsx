@@ -47,9 +47,12 @@ export default function SubredditPost(props) {
 
     // One -- "#D5D5D5"
     // Two -- "#EAC67A"
+    // Three -- "#DCC7AA"
+    // Four -- "#8EAEBD"
+    // Ugly -- #FFFFFF
     
     <div className={classes.root} >
-      <Paper className={classes.paper} style={{backgroundColor: "#D5D5D5"}}>  
+      <Paper className={classes.paper} style={{backgroundColor: "#FFFFFF"}}>  
         <Grid container spacing={2}>
           {displayImage()}
           <Grid item xs={12} sm container>

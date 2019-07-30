@@ -9,6 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CustomizeModal from './CustomizeModal'
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
+import '../css/header.css'
+// import '../css/inputbar.css'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,10 +23,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   textField: {
-    // marginLeft: "auto",
-    // marginRight: "auto",
-    align: "center",
-    mx: "auto",
+    marginLeft: "auto",
+    marginRight: "auto",
+    // align: "center",
+    // mx: "auto",
   },
   
 }));
@@ -39,41 +41,37 @@ export default function Header(props) {
 
     return (
       <div className={classes.root}>
-      <AppBar position="sticky" style={{ background: `${props.theme.header}` }}>
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          {/* <CustomizeModal/> */}
-          <Typography variant="h6" className={classes.title}>
-            Lurkr
-          </Typography>
+        <AppBar position="sticky" style={{ background: `${props.theme.header}` }}>
+          <Toolbar style={{paddingLeft: '0%', paddingRight: '0%'}}>
+            <div id="container">
+              <div id="one">
+                {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                  <MenuIcon />
+                </IconButton> */}
+                
+              </div>
+              <div id="two">
+                <span style={{fontSize: '30px'}}><strong>Lurkr</strong></span>
+              </div>
+              <div id="three">
+                <form style={{float: "right", paddingBottom: '8%'}} onSubmit={event => props.findSubreddit(event)}>
+                  <input type="text" style={{width: '150%', height: '25px', fontSize: '20px', fontWeight: 'bold'}}
+                  value={props.searchFieldValue}
+                  onChange={props.searchFieldChange}
+                  />
+                
 
-          
-
-          {/* <TextField
-          id="outlined-name"
-          label="Name"
-          className={classes.textField}
-          // value={values.name}
-          // onChange={handleChange('name')}
-          margin="normal"
-          variant="outlined"
-          onEnter={test}
-          /> */}
-
-          <form onSubmit={event => props.findSubreddit(event)}>
-            <input type="text"
-            value={props.searchFieldValue}
-            onChange={props.searchFieldChange}
-            />
-          </form>
-
-
-
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+                </form>
+              </div>
+              <div id="four">
+                <Button variant="contained" color="secondary" className={classes.button}>
+                  <span><strong>Login</strong></span>
+                </Button>
+                {/* <Button color="inherit">Login</Button>  */}
+              </div>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </div>
     )
 }

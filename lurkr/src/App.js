@@ -14,23 +14,53 @@ import MainStage from './conatiners/MainStage'
 export default class App extends Component {
     constructor() {
     super()
-    let themeOne = {
+    let themeBlues = {
       header: "#96858F",
       backGround: "#6D7993",
       subreddit: "#9099A2",
       post: "#D5D5D5"
     }
-    let themeTwo = {
+    let themeRustic = {
       header: "#18121E",
       backGround: "#233237",
       subreddit: "#984B43",
       post: "#EAC67A"
     }
+    let themeOrangeDelight = {
+      header: "#6B7A8F",
+      backGround: "#F7882F",
+      subreddit: "#F7C331",
+      post: "#DCC7AA"
+    }
+    let themeDarkMelon = {
+      header: "#CF6766",
+      backGround: "#031424",
+      subreddit: "#30415D",
+      post: "#8EAEBD"
+    }
+    let themeModernHome = {
+      header: "#DA635D",
+      backGround: "#4E4E56",
+      subreddit: "#DCD0C0",
+      post: "#B1938B"
+    }
+    let themeDark = {
+      header: "#000000",
+      backGround: "#4E4E56",
+      subreddit: "#76323F",
+      post: "#B1938B"
+    }
+    let themeUglyDuckling = {
+      header: "#D3D3D3",
+      backGround: "#FFFFFF",
+      subreddit: "#FFFFFF",
+      post: "#B1938B"
+    }
     this.state = {
       subreddits: [],
       searchFieldValue: "",
       usernameFieldValue: "",
-      theme: {...themeOne}
+      theme: {...themeUglyDuckling}
       
     }
   }

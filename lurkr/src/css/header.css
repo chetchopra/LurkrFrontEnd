@@ -1,0 +1,25 @@
+#container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+#one {
+ 
+
+}
+#two {
+  padding-left: 32%;
+  padding-top: 0.5%;
+
+}
+#three {
+  padding-left: 2%;
+  padding-top: 1%;
+
+}
+#four {
+  padding-left: 35%;
+  padding-top: 0.75%;
+
+
+}

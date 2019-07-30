@@ -5,23 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import List from './List'
-// import '../css/subreddit.css'
-
-//TO-DO: Consider making this a container and moving it to the containers folder
-//But I think this needs state
-
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     padding: theme.spacing(2),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-//   },
-// }));
-
-// const classes = useStyles();
+import '../css/subreddit.css'
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+// import Button from '@material-ui/core/Button';
 
 export default class Subreddit extends Component {
 
@@ -39,16 +26,17 @@ export default class Subreddit extends Component {
     .then(json => this.setState({posts: json}))
   }
 
-
-
-  
-  
-
-  generatePosts = () => {
-    return this.state.posts.map((post, index) => {
-      return <SubredditPost key={index} post={post}/>
-    })
+  toTitleCase(input) {
+    return "r/" + input.split(' ')
+    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .join(' ')
   }
+
+  // generatePosts = () => {
+  //   return this.state.posts.map((post, index) => {
+  //     return <SubredditPost key={index} post={post}/>
+  //   })
+  // }
 
   render() {
     
@@ -57,16 +45,34 @@ export default class Subreddit extends Component {
       <Paper style={{margin: '1%', backgroundColor: `${this.props.theme.subreddit}`}}>
         <div id="container">
           <div id="left">
-            <p>{this.props.subreddit.name}</p>
+            <span style={{fontSize: '20px'}}>
+              <strong>{this.toTitleCase(this.props.subreddit.name)}</strong>
+            </span>
           </div>
+
           <div id="right">
-            <Button  color="secondary" onClick={() => {
-              this.props.removeSubreddit(this.props.subreddit.name)
-              }}>
+            
+            {/* <Button variant="contained" color="secondary" onClick={() => 
+              {this.props.removeSubreddit(this.props.subreddit.name)
+            }}>
+              <DeleteIcon />
+            </Button> */}
+
+            {/* <IconButton onClick={() => 
+              {this.props.removeSubreddit(this.props.subreddit.name)
+            }}>
+              <DeleteIcon />
+            </IconButton> */}
+
+            <IconButton onClick={() => 
+              {this.props.removeSubreddit(this.props.subreddit.name)
+            }}>
               x
-            </Button>
+            </IconButton>
+
           </div>
         </div>
+        
 
 
         <Paper style={{maxHeight: 400, overflow: 'auto', backgroundColor: `${this.props.theme.subreddit}`, margin: '1%'}}>
@@ -74,9 +80,6 @@ export default class Subreddit extends Component {
             <List data={this.state.posts} contentDisplayComponent={SubredditPost} theme={this.props.theme}/>
 
         </Paper>
-        {/* <div>
-          Page: 1 2 3 4 5 6 7 8 or nah
-        </div> */}
       </Paper>
     )
   }
