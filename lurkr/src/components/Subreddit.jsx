@@ -55,7 +55,7 @@ export default class Subreddit extends Component {
     return (
       <Paper style={{margin: '1%'}}>
         <div>
-          <p>{this.props.subreddit.name}
+          <p style={{paddingLeft: '5%'}}>{this.props.subreddit.name}
             <Button  color="secondary" onClick={() => {
               this.props.removeSubreddit(this.props.subreddit.name)
               }}>

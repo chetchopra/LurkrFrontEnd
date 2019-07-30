@@ -1,4 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment} from 'react';
+import ReactDOM from 'react-dom';
+// Step 1. Import react-router functions
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Login from './components/Login'
 
 
 import Header from './components/Header';
@@ -11,7 +16,8 @@ export default class App extends Component {
     super()
     this.state = {
       subreddits: [],
-      searchFieldValue: ""
+      searchFieldValue: "",
+      usernameFieldValue: ""
     }
   }
 
@@ -21,9 +27,25 @@ export default class App extends Component {
     .then(json => this.setState({subreddits: json.subreddits}))
   }
 
+  handleLogin = (event) => {
+    event.preventDefault();
+    let username = event.target.children[0].children[1].children[0].value.trim()
+    
+    fetch(`http://localhost:3000/users/login/${username}`)
+    .then(resp => resp.json())
+    .then(json => console.log(json))
+    //fetch to see if user exists
+    //if yes then fetch users subreddits and other info and save user in local storage
+  }
+
   searchFieldChange = (event) => {
     let newSearchTerm = event.target.value;
     this.setState({searchFieldValue: newSearchTerm}) 
+  }
+
+  usernameFieldChange = (event) => {
+    let newUsername = event.target.value;
+    this.setState({usernameFieldValue: newUsername}) 
   }
 
   findSubreddit = (event) => {
@@ -76,10 +98,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <Fragment>
-        <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit}/>
-        <MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit}/>
-      </Fragment>
+      <Router>
+        <Fragment>
+          <Route exact path="/test" render={() => (<Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit}/>)}/>
+          {/* <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit}/> */}
+          {/* <MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit}/> */}
+          <Route exact path="/login" render={() => (<Login usernameFieldValue={this.state.usernameFieldValue} usernameFieldChange={this.usernameFieldChange} handleLogin={this.handleLogin}/> )}/>
+        </Fragment>
+      </Router>
     );
   }
 }

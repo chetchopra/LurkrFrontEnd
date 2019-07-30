@@ -28,7 +28,8 @@ export default function BasicGrid(props) {
 
 
   return (
-    <div className={classes.root}>
+    // style={{backgroundColor: "#113452"}}
+    <div className={classes.root} > 
       <Grid container spacing={3}>
         {generateSubredditGrid(props)}
       </Grid>

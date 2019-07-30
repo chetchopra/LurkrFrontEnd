@@ -44,7 +44,7 @@ export default function Header(props) {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <CustomizeModal/>
+          {/* <CustomizeModal/> */}
           <Typography variant="h6" className={classes.title}>
             Lurkr
           </Typography>
