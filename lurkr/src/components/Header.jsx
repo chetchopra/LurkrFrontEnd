@@ -78,8 +78,8 @@ export default function Header(props) {
                 </form>
               </div>
               <div id="four">
-                <Button variant="contained" color="secondary" className={classes.button}>
-                  <span><strong>Login</strong></span>
+                <Button variant="contained" color="secondary" className={classes.button} onClick={props.handleLogout}>
+                  <span><strong>Logout</strong></span>
                 </Button>
                 {/* <Button color="inherit">Login</Button>  */}
               </div>

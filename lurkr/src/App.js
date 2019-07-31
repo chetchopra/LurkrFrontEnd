@@ -67,9 +67,9 @@ export default class App extends Component {
     this.setState({usernameFieldValue: newUsername}) 
   }
 
-  checkLocalStorage = () => {
-    return localStorage.getItem("currentUser") !== null;
-  }
+  // checkLocalStorage = () => {
+  //   return localStorage.getItem("currentUser") !== null;
+  // }
 
   checkLoggedIn = () => {
     console.log(this.state.currentUser.username !== null)
@@ -77,12 +77,21 @@ export default class App extends Component {
       return (
         <Fragment>
           {/* <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme}/> */}
-          <MainStage currentUser={this.state.currentUser}/>
+          <MainStage currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
         </Fragment>
       );
     } else {
         return <Login usernameFieldValue={this.state.usernameFieldValue} usernameFieldChange={this.usernameFieldChange} handleLogin={this.handleLogin}/>
     }
+  }
+
+  handleLogout = () => {
+    localStorage.removeItem("currentUsername");
+    localStorage.removeItem("currentUserId");
+    let newCurrentUser = {...this.state.currentUser}
+    newCurrentUser.username = null;
+    newCurrentUser.id = null;
+    this.setState({currentUser: newCurrentUser})
   }
 
 

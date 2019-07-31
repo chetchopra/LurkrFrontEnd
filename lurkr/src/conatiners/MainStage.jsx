@@ -130,7 +130,7 @@ export default class MainStage extends Component {
   render() {
     return (
       <Fragment>
-        <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme}/>
+        <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme} handleLogout={this.props.handleLogout}/>
         <BasicGrid subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/> 
       </Fragment> 
     )
