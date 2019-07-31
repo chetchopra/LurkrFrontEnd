@@ -55,14 +55,10 @@ export default function TemporaryDrawer(props) {
   let displayImage = () => {
     if (props.post.item.imageInfo !== null) {
       return <div style={{marginLeft: 'auto', marginRight: 'auto', width: '60%', height: '80%'}}>
-        <img src={buildImageUrl()} style={{maxWidth: '100%', maxHeight: '100%', display: 'block', margin: 'auto'}} alt="Image Link Broken :("/>
+        <img src={buildImageUrl()} style={{maxWidth: '100%', maxHeight: '100%', display: 'block', margin: 'auto', borderRadius: '10px'}} alt="Image Link Broken :("/>
       </div>
     }
   }
-
-
-
-
 
 
   const fullList = side => (
@@ -101,8 +97,10 @@ export default function TemporaryDrawer(props) {
 
         {displayImage()}
 
-        <Paper>Comments</Paper>
-        <CommentSection link={props.post.item.permalink}/>
+        <Paper>Comments
+          <CommentSection link={props.post.item.permalink}/>
+        </Paper>
+        
 
              
       

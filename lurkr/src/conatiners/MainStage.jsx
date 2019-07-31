@@ -70,7 +70,6 @@ export default class MainStage extends Component {
 
 
   componentDidMount() {
-    console.log(this.props)
     fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
     .then(resp => resp.json())
     .then(json => this.setState({subreddits: json.subreddits}))

@@ -5,7 +5,7 @@ export default class CommentSection extends Component {
     super();
     this.state = {
       comments: [],
-      test: []
+      test: [],
     }
   }
 
@@ -31,7 +31,17 @@ export default class CommentSection extends Component {
     fetch(url)
     .then(resp => resp.json())
     .then(json => {
-      this.setState({comments: json[1].data.children})
+      // this.setState({comments: json[1].data.children})
+      console.log(json[1].data.children)
+      let com = json[1].data.children
+      
+      com.forEach((child) => {
+        let depth = 0;
+        printPreorder(child, depth)
+      })
+
+      this.setState({comments: overall})
+
     })
 
 
@@ -46,11 +56,10 @@ export default class CommentSection extends Component {
     
     return (
       <ul>
-        {/* {this.state.test.map((comment, index) => {
+        {this.state.comments.map((comment, index) => {
           return <li key={index}>{comment}</li>;
-        })} */} */}
+        })}
       </ul> 
-
     )
   }
 }

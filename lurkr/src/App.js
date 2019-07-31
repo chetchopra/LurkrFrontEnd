@@ -29,7 +29,6 @@ export default class App extends Component {
   componentDidMount() {
     let username = localStorage.getItem("currentUsername")
     let userId = localStorage.getItem("currentUserId")
-    console.log(username !== null && userId !== null)
     if (username !== null && userId !== null) {
       let newCurrentUser = {...this.state.currentUser}
       newCurrentUser.username = username;
@@ -67,12 +66,7 @@ export default class App extends Component {
     this.setState({usernameFieldValue: newUsername}) 
   }
 
-  // checkLocalStorage = () => {
-  //   return localStorage.getItem("currentUser") !== null;
-  // }
-
   checkLoggedIn = () => {
-    console.log(this.state.currentUser.username !== null)
     if (this.state.currentUser.username !== null) {
       return (
         <Fragment>

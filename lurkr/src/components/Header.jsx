@@ -15,29 +15,12 @@ import '../css/header.css'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  textField: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    // align: "center",
-    // mx: "auto",
-  },
-  
+  },  
 }));
 
 
 export default function Header(props) {
   const classes = useStyles();
-
-  let test = () => {
-    console.log("fdshgjv")
-  }
 
     return (
       <div className={classes.root}>
@@ -81,7 +64,6 @@ export default function Header(props) {
                 <Button variant="contained" color="secondary" className={classes.button} onClick={props.handleLogout}>
                   <span><strong>Logout</strong></span>
                 </Button>
-                {/* <Button color="inherit">Login</Button>  */}
               </div>
             </div>
           </Toolbar>
