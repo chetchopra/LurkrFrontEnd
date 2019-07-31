@@ -5,7 +5,8 @@ const List = props => {
   const { data, contentDisplayComponent, theme } = props;
   // console.log(props)
   return data.map((item, idx) => {
-    return <Fragment key={idx}>{contentDisplayComponent(item, theme)}</Fragment>;
+    // console.log(item)
+    return <Fragment key={idx}>{contentDisplayComponent({item, theme})}</Fragment>;
   });
 };
 

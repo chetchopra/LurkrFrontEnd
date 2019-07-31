@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Login from './components/Login'
 
+import PostDisplay from './components/PostDisplay'
+
 
 import Header from './components/Header';
 import MainStage from './conatiners/MainStage'
@@ -24,7 +26,9 @@ export default class App extends Component {
       header: "#18121E",
       backGround: "#233237",
       subreddit: "#984B43",
-      post: "#EAC67A"
+      post: "#D5D5D5"    
+      // "#EAC67A"
+
     }
     let themeOrangeDelight = {
       header: "#6B7A8F",
@@ -54,13 +58,14 @@ export default class App extends Component {
       header: "#D3D3D3",
       backGround: "#FFFFFF",
       subreddit: "#FFFFFF",
-      post: "#B1938B"
+      post: "#FFFFFF"
     }
+
     this.state = {
       subreddits: [],
       searchFieldValue: "",
       usernameFieldValue: "",
-      theme: {...themeUglyDuckling}
+      theme: {...themeRustic}
       
     }
   }
@@ -142,14 +147,16 @@ export default class App extends Component {
 
   render() {
     return (
-      // <Router>
+      <Router>
         <Fragment>
           {/* <Route exact path="/test" render={() => (<Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit}/>)}/> */}
           <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme}/>
-          <MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/>
-          {/* <Route exact path="/login" render={() => (<Login usernameFieldValue={this.state.usernameFieldValue} usernameFieldChange={this.usernameFieldChange} handleLogin={this.handleLogin}/> )}/> */}
+          {/* <PostDisplay/> */}
+          <Route exact path="/view" render={() => (<MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/>)}/>
+          {/* <MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/> */}
+          <Route exact path="/login" render={() => (<Login usernameFieldValue={this.state.usernameFieldValue} usernameFieldChange={this.usernameFieldChange} handleLogin={this.handleLogin}/> )}/>
         </Fragment>
-      // </Router>
+      </Router>
     );
   }
 }

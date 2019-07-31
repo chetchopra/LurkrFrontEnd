@@ -27,23 +27,8 @@ export default class Expansion extends Component {
     }
   };
 
-  // componentDidMount() {
-  //   fetch("https://www.reddit.com/r/cats/comments/cj2qmd/weve_been_fostering_this_semiferal_7_week_old.json")
-  //   .then(resp => resp.json())
-  //   .then(json => {
-  //     console.log(json[1].data.children[0].kind)
-  //     this.setState((state, _props) => {
-  //       return {comments: json}
-  //     })
-  //   })
-  // }
-
-
-
-
   render() {
 
-  // const classes = useStyles();
 
   let overall = [];
 

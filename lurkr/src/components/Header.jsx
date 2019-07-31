@@ -50,11 +50,25 @@ export default function Header(props) {
                 </IconButton> */}
                 
               </div>
+
               <div id="two">
                 <span style={{fontSize: '30px'}}><strong>Lurkr</strong></span>
               </div>
               <div id="three">
                 <form style={{float: "right", paddingBottom: '8%'}} onSubmit={event => props.findSubreddit(event)}>
+                  
+                {/* <TextField
+                  id="outlined-with-placeholder"
+                  label="Label"
+                  placeholder="Container.."
+                  className={classes.textField}
+                  margin="normal"
+                  variant="outlined"
+                  style={{width: '150%', height: '25px', fontSize: '20px', fontWeight: 'bold'}}
+                  onChange={props.searchFieldChange}
+                /> */}
+                  
+                  
                   <input type="text" style={{width: '150%', height: '25px', fontSize: '20px', fontWeight: 'bold'}}
                   value={props.searchFieldValue}
                   onChange={props.searchFieldChange}

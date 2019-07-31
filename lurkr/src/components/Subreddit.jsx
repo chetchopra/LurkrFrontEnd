@@ -58,17 +58,17 @@ export default class Subreddit extends Component {
               <DeleteIcon />
             </Button> */}
 
-            {/* <IconButton onClick={() => 
-              {this.props.removeSubreddit(this.props.subreddit.name)
-            }}>
-              <DeleteIcon />
-            </IconButton> */}
-
             <IconButton onClick={() => 
               {this.props.removeSubreddit(this.props.subreddit.name)
             }}>
+              <DeleteIcon />
+            </IconButton> 
+
+            {/* <IconButton onClick={() => 
+              {this.props.removeSubreddit(this.props.subreddit.name)
+            }}>
               x
-            </IconButton>
+            </IconButton> */}
 
           </div>
         </div>
