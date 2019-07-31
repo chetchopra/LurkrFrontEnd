@@ -28,7 +28,6 @@ export default class App extends Component {
       subreddit: "#984B43",
       post: "#D5D5D5"    
       // "#EAC67A"
-
     }
     let themeOrangeDelight = {
       header: "#6B7A8F",
@@ -61,11 +60,14 @@ export default class App extends Component {
       post: "#FFFFFF"
     }
 
+
+
     this.state = {
       subreddits: [],
       searchFieldValue: "",
       usernameFieldValue: "",
-      theme: {...themeRustic}
+      theme: {...themeUglyDuckling},
+      currentUser: null
       
     }
   }
@@ -82,9 +84,21 @@ export default class App extends Component {
     
     fetch(`http://localhost:3000/users/login/${username}`)
     .then(resp => resp.json())
-    .then(json => console.log(json))
+    .then(json => {
+      console.log(json);
+      this.handleLoginResponse(json);
+      });
     //fetch to see if user exists
     //if yes then fetch users subreddits and other info and save user in local storage
+  }
+
+  handleLoginResponse = (data) => {
+    if (data.message) {
+      this.setState({usernameFieldValue: "Incorrect Username"})
+    } else if (data.username) {
+      this.setState({currentUser: data.username}) 
+      localStorage.setItem("currentUser", this.state.currentUser); 
+    }
   }
 
   searchFieldChange = (event) => {
@@ -111,7 +125,6 @@ export default class App extends Component {
     fetch("http://localhost:3000/subreddits", configObj)
     .then(resp => resp.json())
     .then(json => {
-      // console.log(json)
       if (json.name !== "Issue") {
         let newState = [...this.state.subreddits]
         newState.push(json);
@@ -144,17 +157,36 @@ export default class App extends Component {
     })
   }
 
+  checkLocalStorage = () => {
+    return localStorage.getItem("currentUser") !== null;
+  }
+
+  checkLoggedIn = () => {
+    if (this.state.currentUser !== null || this.checkLocalStorage()) {
+      return (
+        <Fragment>
+          <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme}/>
+          <MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/>
+        </Fragment>
+      );
+    } else {
+        return <Login usernameFieldValue={this.state.usernameFieldValue} usernameFieldChange={this.usernameFieldChange} handleLogin={this.handleLogin}/>
+    }
+  }
+
 
   render() {
     return (
       <Router>
         <Fragment>
-          {/* <Route exact path="/test" render={() => (<Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit}/>)}/> */}
-          <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme}/>
-          {/* <PostDisplay/> */}
-          <Route exact path="/view" render={() => (<MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/>)}/>
-          {/* <MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/> */}
+
+          {this.checkLoggedIn()}
+
+
+          {/* <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme}/>
           <Route exact path="/login" render={() => (<Login usernameFieldValue={this.state.usernameFieldValue} usernameFieldChange={this.usernameFieldChange} handleLogin={this.handleLogin}/> )}/>
+          <Route exact path="/view" render={() => (<MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/>)}/>
+           */}
         </Fragment>
       </Router>
     );
