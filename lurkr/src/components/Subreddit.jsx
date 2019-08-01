@@ -29,7 +29,7 @@ export default class Subreddit extends Component {
     // console.log(this.props)
     fetch(`http://localhost:3000/subreddits/${this.props.subreddit.name}`)
     .then(resp => resp.json())
-    .then(json => this.setState({posts: json}))
+    .then(json => {this.setState({posts: json})})
   }
 
   toTitleCase(input) {
@@ -40,9 +40,11 @@ export default class Subreddit extends Component {
 
   render() {
     return (
-      <Paper style={{margin: '1%', backgroundColor: `${this.props.theme.subreddit}`}}>
+      <Paper style={{margin: '1%', backgroundColor: `${this.props.theme.subreddit}`,
+                    paddingBottom: '0.25%',
+                    }}>
         <div id="container">
-          <div id="left">
+          <div id="left" style={{textAlign: 'center'}}>
             <span style={{fontSize: '20px'}}>
               <strong>{this.toTitleCase(this.props.subreddit.name)}</strong>
             </span>

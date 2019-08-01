@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import Subreddit from '../components/Subreddit'
 import BasicGrid from './BasicGrid'
 import { Container } from '@material-ui/core';
-import DGrid from '../components/dragndrop/DGrid'
-import ExpansionPanel from '../components/ExpansionPanel'
 import Header from '../components/Header';
 
 
@@ -18,6 +16,7 @@ export default class MainStage extends Component {
       subreddits: [],
       searchFieldValue: "",
       settings: {
+        id: 1,
         numColumns: 3,
         numRecords: 26,
         theme: {
@@ -33,6 +32,10 @@ export default class MainStage extends Component {
 
 
   componentDidMount() {
+    this.fetchUserInfo();
+  }
+
+  fetchUserInfo = () => {
     fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
     .then(resp => resp.json())
     .then(json => {this.setState({subreddits: json.subreddits,
@@ -40,6 +43,28 @@ export default class MainStage extends Component {
     })
   })
   }
+
+  changeColumns = (event, settingId) => {
+    let newCols = event.target.value;
+    this.updateColumns(settingId, newCols)
+  }
+
+  updateColumns = (settingId, newCols) => {
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({columns: newCols})
+    }
+
+
+    fetch(`http://localhost:3000/settings/${settingId}`, configObj)
+    .then(resp => resp.json())
+    
+  }
+
 
 
   searchFieldChange = (event) => {
@@ -49,43 +74,47 @@ export default class MainStage extends Component {
 
   findSubreddit = (event) => {
     event.preventDefault();
+    // this.checkSubreddit();
     let configObj = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({"subreddit": {"name": this.state.searchFieldValue, "user_id": this.props.currentUser.id}})
+      body: JSON.stringify({"subreddit": {"name": this.state.searchFieldValue.trim(), "user_id": this.props.currentUser.id}})
     }
 
     fetch("http://localhost:3000/subreddits", configObj)
     .then(resp => resp.json())
     .then(json => {
-      if (json.name !== "Issue") {
+      if (!json.error) {
         let newState = [...this.state.subreddits]
         newState.push(json);
         this.setState({subreddits: newState})
-      } 
+      } else {
+        alert(json.error)
+      }
+      console.log(json)
     })
     this.setState({searchFieldValue: ""})
     
   }
 
   removeSubreddit = (subredditName) => {
-    console.log(subredditName)
     let configObj = {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({"subreddit": {"name": subredditName, "user_id": this.props.currentUser.id}})
+      body: JSON.stringify({"subreddit": 
+                              {"name": subredditName, 
+                                "user_id": this.props.currentUser.id}})
     }
 
     fetch("http://localhost:3000/subreddits", configObj)
     .then(resp => resp.json())
     .then(json => {
-      console.log("made it into json")
       let newState = [...this.state.subreddits]
       let updatedState = newState.filter((subreddit) => subreddit.name !== subredditName)
       this.setState({subreddits: updatedState})
@@ -96,8 +125,16 @@ export default class MainStage extends Component {
   render() {
     return (
       <Fragment>
-        <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.settings.theme} handleLogout={this.props.handleLogout}/>
-        <BasicGrid subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} settings={this.state.settings}/> 
+        <Header searchFieldValue={this.state.searchFieldValue} 
+                searchFieldChange={this.searchFieldChange} 
+                findSubreddit={this.findSubreddit} 
+                // theme={this.state.settings.theme} 
+                handleLogout={this.props.handleLogout} 
+                changeColumns={this.changeColumns}
+                settings={this.state.settings}/>
+        <BasicGrid subreddits={this.state.subreddits} 
+                   removeSubreddit={this.removeSubreddit} 
+                   settings={this.state.settings}/> 
       </Fragment> 
     )
 

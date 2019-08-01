@@ -16,7 +16,12 @@ export default class CommentSection extends Component {
   getComments = () => {
     let overall = [];
 
+
+
     let printPreorder = (node, depth) => {
+      if(depth === 0) {
+        overall.push("\n")
+      }
       let spaces = Array(depth).fill("-----");
       overall.push(spaces.join("") + node.data.body + "\n");
       if (node.data.replies === "" || !node.data.replies) {
@@ -54,6 +59,9 @@ export default class CommentSection extends Component {
     return (
       <ul>
         {this.state.comments.map((comment, index) => {
+          if (comment === "\n") {
+            return <br key={index}/>
+          }
           return <li key={index}>{comment}</li>;
         })}
       </ul> 

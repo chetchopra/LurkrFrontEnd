@@ -6,11 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import CustomizeModal from './CustomizeModal'
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import '../css/header.css'
 import _ from 'lodash'
+import SettingsDisplay from './SettingsDisplay'
 // import '../css/inputbar.css'
 
 const useStyles = makeStyles(theme => ({
@@ -23,17 +23,18 @@ const useStyles = makeStyles(theme => ({
 export default function Header(props) {
   const classes = useStyles();
 
+
     return (
       <div className={classes.root}>
-        <AppBar position="sticky" style={{ background: `${props.theme.header}` }}>
+        <AppBar position="sticky" style={{ background: `${props.settings.theme.header}` }}>
           <Toolbar style={{paddingLeft: '0%', paddingRight: '0%'}}>
             <div id="container">
               <div id="one">
-                {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                  <MenuIcon />
-                </IconButton> */}
+
                 
               </div>
+
+              <SettingsDisplay settings={props.settings} changeColumns={props.changeColumns} numCols={props.settings.num_cols}/>
 
               <div id="two">
                 <span style={{fontSize: '30px'}}><strong>Lurkr</strong></span>
@@ -56,7 +57,9 @@ export default function Header(props) {
                   <input type="text" style={{width: '150%', height: '25px', fontSize: '20px', fontWeight: 'bold'}}
                   value={props.searchFieldValue}
                   // onChange={props.searchFieldChange}
+                  
                   onChange={props.searchFieldChange}
+                    
                 
                   />
                 
@@ -64,7 +67,7 @@ export default function Header(props) {
                 </form>
               </div>
               <div id="four">
-                <Button variant="contained" color="secondary" className={classes.button} onClick={props.handleLogout}>
+                <Button variant="contained" color="secondary" onClick={props.handleLogout}>
                   <span><strong>Logout</strong></span>
                 </Button>
               </div>

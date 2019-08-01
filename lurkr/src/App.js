@@ -8,6 +8,8 @@ import Login from './components/Login'
 import PostDisplay from './components/PostDisplay'
 
 
+
+
 import Header from './components/Header';
 import MainStage from './conatiners/MainStage'
 // TO-DO: fix path name, conatiners to containers and correct globally
@@ -44,11 +46,12 @@ export default class App extends Component {
     .then(resp => resp.json())
     .then(json => {
       this.handleLoginResponse(json);
-      this.setState({usernameFieldValue: ""})
+      // this.setState({usernameFieldValue: ""})
       });
   }
 
   handleLoginResponse = (data) => {
+    console.log(data)
     if (data.message) {
       this.setState({usernameFieldValue: "Incorrect Username"})
     } else if (data.username) {

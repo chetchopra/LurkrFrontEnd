@@ -20,8 +20,6 @@ export default function BasicGrid(props) {
   
   const classes = useStyles();
 
-  console.log(props)
-
   let determineColumns = () => {
     let cols = 4;
     if (props.settings.num_cols === 1) {
@@ -30,9 +28,7 @@ export default function BasicGrid(props) {
       cols = 6;
     } else if (props.settings.num_cols === 3) {
       cols = 4;
-    } else {
-      cols = 3;
-    }
+    } 
     return cols;
   }
 
@@ -45,7 +41,7 @@ export default function BasicGrid(props) {
 
 
   return (
-    <div className={classes.root} style={{backgroundColor: `${props.settings.theme.backGround}`}} > 
+    <div className={classes.root} style={{backgroundColor: `${props.settings.theme.background}`, width: '100%', height: '100%'}} > 
       <Grid container spacing={3} style={{padding: '1%'}}>
         {generateSubredditGrid(props)}
       </Grid>

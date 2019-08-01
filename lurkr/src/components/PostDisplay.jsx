@@ -63,7 +63,9 @@ export default function TemporaryDrawer(props) {
   let checkForComments = () => {
     if (props.post.item.num_comments > 0) {
       return <Paper style={{backgroundColor: props.post.theme.post}}>
-              Comments
+              <div style={{textAlign: 'center'}}>
+                <span style={{fontSize: '20px'}}><strong>Comments</strong></span>
+              </div>
               <CommentSection link={props.post.item.permalink}/>
              </Paper>
     } else {
@@ -73,6 +75,8 @@ export default function TemporaryDrawer(props) {
     }
   }
 
+  // console.log(props)
+
 
 
   const fullList = side => (
@@ -81,7 +85,8 @@ export default function TemporaryDrawer(props) {
       role="presentation"
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
-      style={{backgroundColor: props.post.theme.backGround}}
+      style={{backgroundColor: props.post.theme.background}}
+      
     >
       <Paper style={{height: '800px', width: '75%', backgroundColor: props.post.theme.post, marginLeft: 'auto', marginRight: 'auto'}}>
 
@@ -93,6 +98,7 @@ export default function TemporaryDrawer(props) {
             <Chip label={`r/${props.post.item.subredditName}`}/>
             <Chip label={`${props.post.item.up_votes} upvotes`}/>
             <Chip label={`${props.post.item.num_comments} comments`}/>
+            <Chip label={`posted by: ${props.post.item.author}`}/>
           </div>
 
           <div style={{paddingTop: '1%'}}>
