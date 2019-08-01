@@ -44,6 +44,7 @@ export default class App extends Component {
     .then(resp => resp.json())
     .then(json => {
       this.handleLoginResponse(json);
+      this.setState({usernameFieldValue: ""})
       });
   }
 

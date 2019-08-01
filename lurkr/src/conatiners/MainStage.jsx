@@ -38,7 +38,7 @@ export default class MainStage extends Component {
     .then(json => {this.setState({subreddits: json.subreddits,
                                   settings: json.setting
     })
-  console.log(json)})
+  })
   }
 
 
@@ -97,7 +97,7 @@ export default class MainStage extends Component {
     return (
       <Fragment>
         <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.settings.theme} handleLogout={this.props.handleLogout}/>
-        <BasicGrid subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.settings.theme}/> 
+        <BasicGrid subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} settings={this.state.settings}/> 
       </Fragment> 
     )
 

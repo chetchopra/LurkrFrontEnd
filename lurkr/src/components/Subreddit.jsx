@@ -26,7 +26,7 @@ export default class Subreddit extends Component {
 
   fetchPosts = () => {
     // console.log("Fecth Called...")
-    console.log(this.props)
+    // console.log(this.props)
     fetch(`http://localhost:3000/subreddits/${this.props.subreddit.name}`)
     .then(resp => resp.json())
     .then(json => this.setState({posts: json}))

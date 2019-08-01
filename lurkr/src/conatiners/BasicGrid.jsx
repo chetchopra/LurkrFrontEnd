@@ -20,17 +20,32 @@ export default function BasicGrid(props) {
   
   const classes = useStyles();
 
+  console.log(props)
+
+  let determineColumns = () => {
+    let cols = 4;
+    if (props.settings.num_cols === 1) {
+      cols = 12;
+    } else if (props.settings.num_cols === 2) {
+      cols = 6;
+    } else if (props.settings.num_cols === 3) {
+      cols = 4;
+    } else {
+      cols = 3;
+    }
+    return cols;
+  }
+
   let generateSubredditGrid = (props) => {
     return props.subreddits.map((subreddit) => {
-      return <Grid item xs={4} key={subreddit.name}><Subreddit subreddit={subreddit} removeSubreddit={props.removeSubreddit} theme={props.theme}/></Grid>
+      return <Grid item xs={determineColumns()} key={subreddit.name}><Subreddit subreddit={subreddit} removeSubreddit={props.removeSubreddit} theme={props.settings.theme}/></Grid>
     })
   }
 
 
 
   return (
-    // style={{backgroundColor: "#113452"}}
-    <div className={classes.root} style={{backgroundColor: `${props.theme.backGround}`}} > 
+    <div className={classes.root} style={{backgroundColor: `${props.settings.theme.backGround}`}} > 
       <Grid container spacing={3} style={{padding: '1%'}}>
         {generateSubredditGrid(props)}
       </Grid>
