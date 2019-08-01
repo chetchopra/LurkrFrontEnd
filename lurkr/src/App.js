@@ -20,7 +20,6 @@ export default class App extends Component {
       usernameFieldValue: "",
       currentUser: {
         username: null,
-        theme: null,
         id: null
       } 
     }
@@ -91,7 +90,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
+      // <Router>
         <Fragment>
 
           {this.checkLoggedIn()}
@@ -102,7 +101,7 @@ export default class App extends Component {
           <Route exact path="/view" render={() => (<MainStage subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/>)}/>
            */}
         </Fragment>
-      </Router>
+      // </Router>
     );
   }
 }

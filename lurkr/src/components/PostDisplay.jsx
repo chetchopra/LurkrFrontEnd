@@ -36,7 +36,7 @@ export default function TemporaryDrawer(props) {
     right: false,
   });
 
-  console.log(props)
+  // console.log(props)
 
 
   const toggleDrawer = (side, open) => event => {
@@ -59,6 +59,20 @@ export default function TemporaryDrawer(props) {
       </div>
     }
   }
+
+  let checkForComments = () => {
+    if (props.post.item.num_comments > 0) {
+      return <Paper style={{backgroundColor: props.post.theme.post}}>
+              Comments
+              <CommentSection link={props.post.item.permalink}/>
+             </Paper>
+    } else {
+      return <Paper style={{backgroundColor: props.post.theme.post}}>
+                No comments
+             </Paper>
+    }
+  }
+
 
 
   const fullList = side => (
@@ -97,13 +111,8 @@ export default function TemporaryDrawer(props) {
 
         {displayImage()}
 
-        <Paper>Comments
-          <CommentSection link={props.post.item.permalink}/>
-        </Paper>
-        
+        {checkForComments()}
 
-             
-      
       </Paper>
 
       

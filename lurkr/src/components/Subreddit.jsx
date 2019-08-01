@@ -8,6 +8,7 @@ import List from './List'
 import '../css/subreddit.css'
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 // import Button from '@material-ui/core/Button';
 
 export default class Subreddit extends Component {
@@ -15,12 +16,17 @@ export default class Subreddit extends Component {
   constructor() {
     super();
     this.state = {
-      posts: [],
-
+      posts: []
     }
   }
 
   componentDidMount() {
+    this.fetchPosts();
+  }
+
+  fetchPosts = () => {
+    // console.log("Fecth Called...")
+    console.log(this.props)
     fetch(`http://localhost:3000/subreddits/${this.props.subreddit.name}`)
     .then(resp => resp.json())
     .then(json => this.setState({posts: json}))
@@ -32,15 +38,7 @@ export default class Subreddit extends Component {
     .join(' ')
   }
 
-  // generatePosts = () => {
-  //   return this.state.posts.map((post, index) => {
-  //     return <SubredditPost key={index} post={post}/>
-  //   })
-  // }
-
   render() {
-    
-
     return (
       <Paper style={{margin: '1%', backgroundColor: `${this.props.theme.subreddit}`}}>
         <div id="container">
@@ -50,7 +48,13 @@ export default class Subreddit extends Component {
             </span>
           </div>
 
+
+
           <div id="right">
+
+          <IconButton>
+            <img src="https://img.icons8.com/android/24/000000/refresh.png"/>
+          </IconButton>
             
             {/* <Button variant="contained" color="secondary" onClick={() => 
               {this.props.removeSubreddit(this.props.subreddit.name)
@@ -63,20 +67,13 @@ export default class Subreddit extends Component {
             }}>
               <DeleteIcon />
             </IconButton> 
-
-            {/* <IconButton onClick={() => 
-              {this.props.removeSubreddit(this.props.subreddit.name)
-            }}>
-              x
-            </IconButton> */}
-
           </div>
+
         </div>
         
 
 
         <Paper style={{maxHeight: 400, overflow: 'auto', backgroundColor: `${this.props.theme.subreddit}`, margin: '1%'}}>
-            {/* {this.generatePosts()} */}
             <List data={this.state.posts} contentDisplayComponent={SubredditPost} theme={this.props.theme}/>
 
         </Paper>

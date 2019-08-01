@@ -10,6 +10,7 @@ import CustomizeModal from './CustomizeModal'
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import '../css/header.css'
+import _ from 'lodash'
 // import '../css/inputbar.css'
 
 const useStyles = makeStyles(theme => ({
@@ -38,7 +39,7 @@ export default function Header(props) {
                 <span style={{fontSize: '30px'}}><strong>Lurkr</strong></span>
               </div>
               <div id="three">
-                <form style={{float: "right", paddingBottom: '8%'}} onSubmit={event => props.findSubreddit(event)}>
+                <form style={{float: "right", paddingBottom: '8%'}} onSubmit={props.findSubreddit}>
                   
                 {/* <TextField
                   id="outlined-with-placeholder"
@@ -54,7 +55,9 @@ export default function Header(props) {
                   
                   <input type="text" style={{width: '150%', height: '25px', fontSize: '20px', fontWeight: 'bold'}}
                   value={props.searchFieldValue}
+                  // onChange={props.searchFieldChange}
                   onChange={props.searchFieldChange}
+                
                   />
                 
 

@@ -27,6 +27,7 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
+    borderRadius: '10px'
   },
 }));
 
@@ -36,25 +37,15 @@ export default function SubredditPost(props) {
   let {theme} = props;
   const classes = useStyles();
 
-  // console.log("From SubredditPost", props.item.permalink)
   let displayImage = () => {
-    // console.log(props)
-    if (img !== "" && img !== "self" && img !== "default") {
+    if (img !== "" && img !== "self" && img !== "default" && img !== "nsfw") {
       return <Grid item>
       <ButtonBase className={classes.image}>
-        <img className={classes.img} alt="complex" src={img} style={{borderRadius: "10px"}}/>
+        <img className={classes.img} alt="complex" src={img}/>
       </ButtonBase>
     </Grid> 
     }
   }
-
-  // const toggleDrawer = (side, open) => event => {
-  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-  //     return;
-  //   }
-
-  //   setState({ ...state, [side]: open });
-  // };
 
   return (
     <div className={classes.root} >

@@ -19,9 +19,10 @@ export default class CommentSection extends Component {
     let printPreorder = (node, depth) => {
       let spaces = Array(depth).fill("-----");
       overall.push(spaces.join("") + node.data.body + "\n");
-      if (node.data.replies === "") {
+      if (node.data.replies === "" || !node.data.replies) {
         return;
       } 
+      console.log(node.data.replies)
       node.data.replies.data.children.forEach((childNode) => {
         printPreorder(childNode, depth + 1);
       })
@@ -31,8 +32,6 @@ export default class CommentSection extends Component {
     fetch(url)
     .then(resp => resp.json())
     .then(json => {
-      // this.setState({comments: json[1].data.children})
-      console.log(json[1].data.children)
       let com = json[1].data.children
       
       com.forEach((child) => {
@@ -44,8 +43,6 @@ export default class CommentSection extends Component {
 
     })
 
-
-    
 
 
   }

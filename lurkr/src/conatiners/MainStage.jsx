@@ -14,57 +14,20 @@ import Header from '../components/Header';
 export default class MainStage extends Component {
   constructor() {
     super()
-
-    // Visual Fuckery
-    let themeBlues = {
-      header: "#96858F",
-      backGround: "#6D7993",
-      subreddit: "#9099A2",
-      post: "#D5D5D5"
-    }
-    let themeRustic = {
-      header: "#18121E",
-      backGround: "#233237",
-      subreddit: "#984B43",
-      post: "#D5D5D5"    
-      // "#EAC67A"
-    }
-    let themeOrangeDelight = {
-      header: "#6B7A8F",
-      backGround: "#F7882F",
-      subreddit: "#F7C331",
-      post: "#DCC7AA"
-    }
-    let themeDarkMelon = {
-      header: "#CF6766",
-      backGround: "#031424",
-      subreddit: "#30415D",
-      post: "#8EAEBD"
-    }
-    let themeModernHome = {
-      header: "#DA635D",
-      backGround: "#4E4E56",
-      subreddit: "#DCD0C0",
-      post: "#B1938B"
-    }
-    let themeDark = {
-      header: "#000000",
-      backGround: "#4E4E56",
-      subreddit: "#76323F",
-      post: "#B1938B"
-    }
-    let themeUglyDuckling = {
-      header: "#D3D3D3",
-      backGround: "#FFFFFF",
-      subreddit: "#FFFFFF",
-      post: "#FFFFFF"
-    }
-
-    // STATE
     this.state = {
       subreddits: [],
       searchFieldValue: "",
-      theme: {...themeUglyDuckling},
+      settings: {
+        numColumns: 3,
+        numRecords: 26,
+        theme: {
+          background: "#6D7993",
+          header: "#96858F",  
+          post: "#D5D5D5",
+          subreddit: "#9099A2",
+          theme_name: "The Blues"
+        }
+      }
     }
   }
 
@@ -72,8 +35,12 @@ export default class MainStage extends Component {
   componentDidMount() {
     fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
     .then(resp => resp.json())
-    .then(json => this.setState({subreddits: json.subreddits}))
+    .then(json => {this.setState({subreddits: json.subreddits,
+                                  settings: json.setting
+    })
+  console.log(json)})
   }
+
 
   searchFieldChange = (event) => {
     let newSearchTerm = event.target.value;
@@ -129,8 +96,8 @@ export default class MainStage extends Component {
   render() {
     return (
       <Fragment>
-        <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.theme} handleLogout={this.props.handleLogout}/>
-        <BasicGrid subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.theme}/> 
+        <Header searchFieldValue={this.state.searchFieldValue} searchFieldChange={this.searchFieldChange} findSubreddit={this.findSubreddit} theme={this.state.settings.theme} handleLogout={this.props.handleLogout}/>
+        <BasicGrid subreddits={this.state.subreddits} removeSubreddit={this.removeSubreddit} theme={this.state.settings.theme}/> 
       </Fragment> 
     )
 
