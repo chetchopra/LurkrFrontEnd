@@ -81,7 +81,8 @@ export default class MainStage extends Component {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({"subreddit": {"name": this.state.searchFieldValue.trim(), "user_id": this.props.currentUser.id}})
+      body: JSON.stringify({"subreddit": {"name": this.state.searchFieldValue.trim(), 
+      "user_id": this.props.currentUser.id}})
     }
 
     fetch("http://localhost:3000/subreddits", configObj)
