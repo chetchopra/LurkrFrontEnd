@@ -3,14 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-
 import CommentSection from './CommentSection';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
@@ -36,7 +28,7 @@ export default function TemporaryDrawer(props) {
     right: false,
   });
 
-  // console.log(props)
+  console.log(props)
 
 
   const toggleDrawer = (side, open) => event => {
@@ -49,6 +41,19 @@ export default function TemporaryDrawer(props) {
 
   let buildImageUrl = () => {
     let url = props.post.item.imageInfo.images[0].source.url.replace("amp;", "")
+  
+    if (props.post.item.imageInfo.images[0].variants) {
+      if (props.post.item.imageInfo.images[0].variants.gif) {
+        url = props.post.item.imageInfo.images[0].variants.gif.source.url.replace("amp;", "")
+      }
+    }
+
+    // let url = "";
+    // if (props.post.item.imageInfo.images[0].variants.gif) {
+    //   url = props.post.item.imageInfo.images[0].variants.gif.source.url.replace("amp;", "")
+    // } 
+    
+
     return url
   }
 
@@ -56,6 +61,7 @@ export default function TemporaryDrawer(props) {
     if (props.post.item.imageInfo !== null) {
       return <div style={{marginLeft: 'auto', marginRight: 'auto', width: '60%', height: '80%'}}>
         <img src={buildImageUrl()} style={{maxWidth: '100%', maxHeight: '100%', display: 'block', margin: 'auto', borderRadius: '10px'}} alt="Image Link Broken :("/>
+        <a href={props.post.item.url} target="_blank" rel="noopener noreferrer">Content Link</a>
       </div>
     }
   }

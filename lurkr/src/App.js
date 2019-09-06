@@ -1,16 +1,11 @@
 import React, { Component, Fragment} from 'react';
-import ReactDOM from 'react-dom';
+
 // Step 1. Import react-router functions
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Login from './components/Login'
 
-import PostDisplay from './components/PostDisplay'
 
 
-
-
-import Header from './components/Header';
 import MainStage from './conatiners/MainStage'
 // TO-DO: fix path name, conatiners to containers and correct globally
 

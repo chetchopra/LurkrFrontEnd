@@ -33,9 +33,11 @@ export default class Subreddit extends Component {
   }
 
   toTitleCase(input) {
+    // console.log(this.state)
     return "r/" + input.split(' ')
     .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
     .join(' ')
+    
   }
 
   render() {

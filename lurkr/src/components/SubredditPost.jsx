@@ -37,7 +37,8 @@ export default function SubredditPost(props) {
   const classes = useStyles();
 
   let displayImage = () => {
-    if (img !== "" && img !== "self" && img !== "default" && img !== "nsfw") {
+    // console.log(props)
+    if (img !== "" && img !== "self" && img !== "default" && img !== "nsfw" && img !== "spoiler") {
       return <Grid item>
       <ButtonBase className={classes.image}>
         <img className={classes.img} alt="complex" src={img}/>

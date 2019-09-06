@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Subreddit from '../components/Subreddit'
 import BasicGrid from './BasicGrid'
-import { Container } from '@material-ui/core';
 import Header from '../components/Header';
 
 
@@ -129,7 +127,6 @@ export default class MainStage extends Component {
         <Header searchFieldValue={this.state.searchFieldValue} 
                 searchFieldChange={this.searchFieldChange} 
                 findSubreddit={this.findSubreddit} 
-                // theme={this.state.settings.theme} 
                 handleLogout={this.props.handleLogout} 
                 changeColumns={this.changeColumns}
                 settings={this.state.settings}/>
