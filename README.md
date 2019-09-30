@@ -6,10 +6,10 @@ This is the front end for an reddit browsing app. Have you ever wanted to view m
 <img src="https://media.giphy.com/media/W5Cyzp04jWojGq6iYj/giphy.gif">
 
 ## Demo
- A live demo is currently being worked on but there is a demo video highlighting the main features at 
- https://www.youtube.com/watch?v=u4X-69pAn6M&t=
+A live demo is currently being worked on but there is a demo video highlighting the main features at 
+https://www.youtube.com/watch?v=u4X-69pAn6M&t=
  
-[![Lurkr Demo](https://www.youtube.com/watch?v=u4X-69pAn6M&t=)](https://www.youtube.com/watch?v=u4X-69pAn6M&t=)
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/watch?v=u4X-69pAn6M&t=)
 
 ## Technologies Used
 <img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" style="100px;height:100px;">React</img>
