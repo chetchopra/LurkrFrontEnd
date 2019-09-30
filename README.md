@@ -8,9 +8,9 @@ This is the front end for an reddit browsing app. Have you ever wanted to view m
 ## Demo
 
 ## Technologies Used
-<img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" style="width:20%;height:20%;">React</img>
+<img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" style="width:5%;height:5%;">React</img>
 
-<img src="https://material-ui.com/static/brand.png" style="width:20%;height:20%;">Material UI</img>
+<img src="https://material-ui.com/static/brand.png" style="width:5%;height:5%;">Material UI</img>
 
 ## Usage
 
