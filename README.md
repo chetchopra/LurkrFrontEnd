@@ -6,6 +6,12 @@ This is the front end for an reddit browsing app. Have you ever wanted to view m
 <img src="https://media.giphy.com/media/W5Cyzp04jWojGq6iYj/giphy.gif">
 
 ## Demo
+ A live demo is currently being worked on but there is a demo video highlighting the main features at 
+ https://www.youtube.com/watch?v=u4X-69pAn6M&t=
+ 
+ <iframe width="420" height="315"
+src="https://www.youtube.com/watch?v=u4X-69pAn6M&t=">
+</iframe>
 
 ## Technologies Used
 <img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" style="100px;height:100px;">React</img>
