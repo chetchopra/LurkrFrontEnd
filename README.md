@@ -5,7 +5,7 @@
 ## Demo
 
 ## Technologies Used
-<img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjO6Jy0q_fkAhVKCjQIHVuWDscQjRx6BAgBEAQ&url=https%3A%2F%2Ficons-for-free.com%2Fdesign%2Bdevelopment%2Bfacebook%2Bframework%2Bmobile%2Breact%2Bicon-1320165723839064798%2F&psig=AOvVaw0HOPF8i9xlfgX4wDw0BNkN&ust=1569891417421041"/>
+<img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png"/>
 
 
 ## Usage
