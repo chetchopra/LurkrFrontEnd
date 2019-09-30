@@ -13,11 +13,14 @@ https://www.youtube.com/watch?v=u4X-69pAn6M&t=
 
 
 ## Technologies Used
+
+<div style="display: inline">
 <img title="React" src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" height="10%" width="10%"/>
 
 <img title="Material UI" src="https://material-ui.com/static/brand.png" height="10%" width="10%"/>
 
 <img title="Reddit API" src="https://external-preview.redd.it/QJRqGgkUjhGSdu3vfpckrvg1UKzZOqX2BbglcLhjS70.png?auto=webp&s=c681ae9c9b5021d81b6c4e3a2830f09eff2368b5" height="10%" width="10%"/>
+</div>
 
 
 
