@@ -1,12 +1,16 @@
 # LurkrFrontEnd
 
 ## About
+This is the front end for an reddit browsing app. Have you ever wanted to view multiple subreddits at the same time in a grid like view? And have the ability to expand posts from any subreddit without having to switch tabs? This project does just that. 
+
+<img src="https://gph.is/g/Z7D7o7m">
 
 ## Demo
 
 ## Technologies Used
-<img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png"/>
+<img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" style="width:500px;height:600px;">React</img>
 
+<img src="https://material-ui.com/static/brand.png" style="width:500px;height:600px;">Material UI</img>
 
 ## Usage
 
