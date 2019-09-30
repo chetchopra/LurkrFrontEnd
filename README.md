@@ -13,9 +13,11 @@ https://www.youtube.com/watch?v=u4X-69pAn6M&t=
 
 
 ## Technologies Used
-<img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" style="100px;height:100px;">React</img>
+<img src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" height="10%" width="10%"/>
+React
 
-<img src="https://material-ui.com/static/brand.png" style="width:100px;height:100px;">Material UI</img>
+<img src="https://material-ui.com/static/brand.png" height="10%" width="10%"/>
+Material UI
 
 ## Usage
 
