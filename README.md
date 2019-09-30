@@ -26,16 +26,39 @@ https://www.youtube.com/watch?v=u4X-69pAn6M&t=
 
 ## Usage
 
-In the project directory, you can run:
+1. Clone or fork this repo
 
-### `npm install`
+2. Run `npm install` to install the required dependencies
 
-This will install all needed dependencies in the node_modules folder
-
-### `npm start`
+3. Run `npm start` to run the project
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 This front-end links to a ruby on rails backend that I made. You can feel free to clone or fork that repo as well from 
 https://github.com/chetchopra/LurkrAPI
+
+### Quickly add new subreddits
+
+<img src="https://media.giphy.com/media/RLz3BLmegc2QN8ZeLq/giphy.gif"/>
+
+### Remove unwanted subreddits
+
+<img src="https://media.giphy.com/media/SAUP3cTrgYEWnLlEWU/giphy.gif"/>
+
+### Customize the grid layout
+
+<img src="https://media.giphy.com/media/h26jTKqfikFOtSYs8z/giphy.gif"/>
+
+### Themes
+I'm working on it...
+
+
+
+
+
+
+
+
+
+
