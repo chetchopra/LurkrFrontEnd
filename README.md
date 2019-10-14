@@ -20,7 +20,7 @@ A live demo is currently being worked on but there is a demo video highlighting 
 
 <img title="Reddit API" src="https://external-preview.redd.it/QJRqGgkUjhGSdu3vfpckrvg1UKzZOqX2BbglcLhjS70.png?auto=webp&s=c681ae9c9b5021d81b6c4e3a2830f09eff2368b5" height="10%" width="10%"/>
 </div>
-
+d
 
 
 ## Usage
