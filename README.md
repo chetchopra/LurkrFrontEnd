@@ -1,7 +1,7 @@
 # Lurkr
 
 ## About
-This is the front end for an reddit browsing app. Have you ever wanted to view multiple subreddits at the same time in a grid like view? And have the ability to expand posts from any subreddit without having to switch tabs? This project does just that. 
+This is the front end for an reddit browsing app. Have you ever wanted to view multiple subreddits at the same time in a grid like view. And have the ability to expand posts from any subreddit without having to switch tabs? This project does just that. 
 
 <img src="https://media.giphy.com/media/W5Cyzp04jWojGq6iYj/giphy.gif"/>
 
