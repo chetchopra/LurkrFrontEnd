@@ -28,7 +28,7 @@ d
 1. Clone or fork this repo
 
 2. Run `npm install` to install the required dependencies
-
+ 
 3. Run `npm start` to run the project
 
 Runs the app in the development mode.<br>
